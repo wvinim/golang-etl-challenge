@@ -1,7 +1,5 @@
 ## Lista de apoio aos estudos, comandos úteis e pesquisas
 
-### Neste arquivo eu vou adicionar algumas descobertas em geral que me ajudaram durante os estudos
-
 ### Para iniciar um projeto em go
 
     go mod init golang-etl-challenge
