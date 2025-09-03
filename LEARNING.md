@@ -37,5 +37,5 @@
 
 ## Interpretando os dados de benchmark
 
-    Pelo que puder entender, o benchmark gerencia automaticamente a dureção e o número de interacões para evitar que outros fatores interfiram na integridade do teste.
+    O benchmark gerencia automaticamente a duração e o número de interacões para garantir a integridade do teste.
     Os dados mais importantes são o número de interações e o tempo por interação.
