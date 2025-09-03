@@ -1,4 +1,4 @@
-module golang-etl-challenge
+module golang-etl-challenge-performance
 
 go 1.25.0
 
