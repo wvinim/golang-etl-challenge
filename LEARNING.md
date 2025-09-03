@@ -23,6 +23,10 @@
 
     go test -bench=. -memprofile=mem.out
 
+## Para executar o benchmark por mais tempo
+
+    go test -bench=. -benchtime=3s
+
 ## Para analisar o profile da cpu em modo web
 
     go tool pprof -http=:8080 cpu.out
@@ -30,3 +34,8 @@
 ##  Para analisar o profile da cpu em modo web com foco em uma função específica
 
     go tool pprof -http=:8080 -focus=normalizeFast cpu.out
+
+## Interpretando os dados de benchmark
+
+    Pelo que puder entender, o benchmark gerencia automaticamente a dureção e o número de interacões para evitar que outros fatores interfiram na integridade do teste.
+    Os dados mais importantes são o número de interações e o tempo por interação.
