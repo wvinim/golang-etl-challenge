@@ -8,6 +8,9 @@
     - Decodificação híbrida para diferenciar caracteres ASCII dos demais.
     - O exemplo prático do melhor resultado que obtive (até agora rss) está em steps/2-normalize
         - 9120418 operações em 2.563s, 131.3 ns/op
-- [ ] Como ler grandes arquivos em buffer?
-    - Faz diferença transformar esse arquivo em binário puro antes?
+- [x] Como ler grandes arquivos em buffer e fazer o parse corretamente?
+    - Utilizei o buffio, disponível da própria linguagem
+        - Encontrei uma melhoria na porformance setando manualmente o tamanho de buffer de leitura
+    - O exemplo prático com o melhor resultado que obtive está em steps/3-parsing
 - [ ] Como enviar inserts em batch para o banco?
+- [ ] Juntar tudo e aplicar paralelismo
