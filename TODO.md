@@ -12,5 +12,14 @@
     - Utilizei o buffio, disponível da própria linguagem
         - Encontrei uma melhoria na porformance setando manualmente o tamanho de buffer de leitura
     - O exemplo prático com o melhor resultado que obtive está em steps/3-parsing
-- [ ] Como enviar inserts em batch para o banco?
-- [ ] Juntar tudo e aplicar paralelismo
+        - 164 operações em 2.052s, 6934582 ns/op
+- [x] Como enviar inserts em batch para o banco?
+    - [x] Definir estrutura da tabela e como criá-la no banco
+        - Não utilizei valores fixos para o tamanho dos campos (ex varchar(50)), por dois motivos:
+            - A decisão do tamanho apenas pela amostragem da base fictícia pode trazer problemas futuros em um caso real
+            - A diferença de performance é mínima, mas é cabível caso exista um contrato definido para este arquivo
+        - O uso de índices é crucial para otimizar as consultas em tabelas realmente grandes
+            - Apesar comprometer um pouco a performance do insert, deixei um exemplo como prova de conhecimento
+        - 2 operações em 2.046s, 583320104 ns/op
+- [] O copyfrom com paralelismo, é mais rápido?
+- [] Criar uma solução com tudo o que foi testado
