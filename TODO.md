@@ -20,6 +20,19 @@
             - A diferença de performance é mínima, mas é cabível caso exista um contrato definido para este arquivo
         - O uso de índices é crucial para otimizar as consultas em tabelas realmente grandes
             - Apesar comprometer um pouco a performance do insert, deixei um exemplo como prova de conhecimento
-        - 2 operações em 2.046s, 583320104 ns/op
-- [] O copyfrom com paralelismo, é mais rápido?
+        - O exemplo prático com o melhor resultado que obtive está em steps/4-insert (para 50k registros)
+            - 2 operações em 2.046s, 583320104 ns/op
+- [x] Copyfrom ou batch insert com paralelismo, qual é mais rápido?
+    - É possível quebrar os batchs em partes menores para evitar sobrecarga de memória
+        - Isso permite o processamento de arquivos massivos, testei com 5 milhões de registros sem consumir muita 
+    - Utilizei uma técnica chamada processamento em fluxo com paralelismo (go routines)
+        - Criei um canal de dados e um produtor de dados para alimentar este canal
+        - Os trabalhadores ouvem a fila do canal de dados e executam em paralelo de acordo com o número de cores e tamanho da fila
+            - Fiz vários testes utilizando uma carga de 5 milhões de registros
+                - Caso exista apenas 1 core, tudo funciona normalmente mas é processado de maneira sequencial
+                - O tempo de execução se mostrou muito satisfatório com 4 cores (workers) e uma fila (chunk) de 5 mil registros
+                    - Sem mudanças muito significativas ao aumentar o número de cores e o tamanho da da fila
+                        - Resultados para 50 mil registros
+                        - CopyFrom 183.015583ms em steps/5-batch-insert-multicore (streaming, menos memória e melhor cenário)
+                        - Batch Insert 312.542583ms em steps/6-copy-from-multicore
 - [] Criar uma solução com tudo o que foi testado
