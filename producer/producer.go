@@ -2,8 +2,8 @@ package producer
 
 import (
 	"bufio"
+	"io"
 	"log"
-	"os"
 	"strconv"
 	"strings"
 
@@ -11,29 +11,22 @@ import (
 	"golang-etl-challenge/normalizer"
 )
 
-// Função responsável por gerar os dados em lotes para o canal, executada em goroutine
-func FileDataProducer(filename string, chunkSize int, dataChan chan<- []models.Fatura) {
+// Lê os dados de um io.Reader, cria os lotes e os envia para o canal
+// Esta função é agnóstica à fonte de dados
+// Pode lidar com dados de arquivos, streams de rede, etc...
+func FileDataProducer(reader io.Reader, chunkSize int, dataChan chan<- []models.Fatura) {
 	// Fecha o canal quando a função terminar
 	// Sinaliza aos workers que não precisam aguardar mais dados
 	defer close(dataChan)
 
-	// Abre o ponteiro para arquivo
-	file, err := os.Open(filename)
-	if err != nil {
-		log.Printf("Erro ao abrir arquivo: %v", err)
-		return
-	}
-	// Fecha o ponteiro para o arquivo quando a função terminar
-	defer file.Close()
-
 	// Define buffer máximo de 64KB
 	// O melhor em diversos testes de performance (testei de 1 KB até 1 MB)
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(reader)
 	const maxCapacity = 64 * 1024
 	buf := make([]byte, maxCapacity)
 	scanner.Buffer(buf, maxCapacity)
 
-	// Pulando o cabeçalho
+	// Pulando o cabeçalho do arquivo (nomes das colunas)
 	scanner.Scan()
 
 	// Cria os dados de acordo com a fatia
@@ -48,7 +41,6 @@ func FileDataProducer(filename string, chunkSize int, dataChan chan<- []models.F
 			linha++
 			continue
 		}
-
 		qtdNota, _ := strconv.Atoi(cols[4])
 		fatura, _ := strconv.Atoi(cols[5])
 
