@@ -35,4 +35,8 @@
                         - Resultados para 50 mil registros
                         - CopyFrom 183.015583ms em steps/5-batch-insert-multicore (streaming, menos memória e melhor cenário)
                         - Batch Insert 312.542583ms em steps/6-copy-from-multicore
-- [] Criar uma solução com tudo o que foi testado
+- [x] Criar uma solução com tudo o que foi testado
+    - Utilizei os melhores resultados de cada etapa
+    - Separei a estrutura de arquivos por responsabilidade na raiz do projeto
+    - Atingi o objetivo em 100ms, ambiente local e utilizando os 8 cores (Macbook Air M1)
+- [] Docker e documentação
