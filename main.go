@@ -20,11 +20,12 @@ import (
 )
 
 func main() {
-	// Carrega as variáveis do arquivo .env.
-	// Se o arquivo não existir, ou houver um erro nas variáveis, o programa irá encerrar.
+	environment := os.Getenv("ENVIRONMENT")
+	// O docker importa as variáveis de ambiente do arquivo .env
+	// Em ambiente local, é necessário usar o godotenv
 	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Erro ao carregar o arquivo .env: %v", err)
+	if err != nil && environment != "docker" {
+		log.Println("Erro ao carregar o arquivo .env")
 	}
 
 	pgHost := os.Getenv("POSTGRES_HOST")
