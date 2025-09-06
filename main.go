@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"runtime"
@@ -25,17 +26,28 @@ func main() {
 	if err != nil {
 		log.Fatalf("Erro ao carregar o arquivo .env: %v", err)
 	}
-	connStr := os.Getenv("CONN_STR")
-	if connStr == "" {
-		log.Fatalf("Missing env variable CONN_STR")
+
+	pgHost := os.Getenv("POSTGRES_HOST")
+	pgUser := os.Getenv("POSTGRES_USER")
+	pgPassword := os.Getenv("POSTGRES_PASSWORD")
+	pgDb := os.Getenv("POSTGRES_DB")
+
+	if pgHost == "" || pgUser == "" || pgPassword == "" || pgDb == "" {
+		log.Fatalf("Missing postgres credencials env variable (s)")
 	}
+
+	// Constrói a string de conexão.
+	connStr := fmt.Sprintf("postgresql://%s:%s@%s:5432/%s?sslmode=disable", pgUser, pgPassword, pgHost, pgDb)
+
 	filePatch := os.Getenv("FILE_PATH")
 	if filePatch == "" {
 		log.Fatalf("Missing env variable FILE_PATH")
 	}
+
+	// Caso não seja setado via env, o padrão é 5000 por lote
 	chunkSize, _ := strconv.Atoi(os.Getenv("CHUNK_SIZE"))
 	if chunkSize == 0 {
-		log.Fatalf("Missing env variable CHUNK_SIZE")
+		chunkSize = 5000
 	}
 
 	// Usará o número de cores que estiver disponível na instância
