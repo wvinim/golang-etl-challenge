@@ -112,10 +112,10 @@ CREATE TABLE IF NOT EXISTS faturas (
 );
 ```
 
-    - O próprio script cria a tabela durante a inicialização (se não existir), não utilizei gORM devido a simplicidade do projeto.
-    - Não utilizei valores fixos para o tamanho dos campos (ex varchar(50)), por dois motivos:
-        - A decisão do tamanho apenas pela amostragem da base fictícia pode trazer problemas futuros em um caso real
-        - A diferença de performance é mínima, mas é cabível caso exista um contrato definido para este arquivo
+- O próprio script cria a tabela durante a inicialização (se não existir), não utilizei gORM devido a simplicidade do projeto.
+- Não utilizei valores fixos para o tamanho dos campos (ex varchar(50)), por dois motivos:
+    - A decisão do tamanho apenas pela amostragem da base fictícia pode trazer problemas futuros em um caso real
+    - A diferença de performance é mínima, mas é cabível caso exista um contrato definido para este arquivo
 
 Exemplos de  índices:
 
