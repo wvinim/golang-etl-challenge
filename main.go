@@ -53,8 +53,9 @@ func init() {
 	pgUser := os.Getenv("POSTGRES_USER")
 	pgPassword := os.Getenv("POSTGRES_PASSWORD")
 	pgDb := os.Getenv("POSTGRES_DB")
+	pgPort := os.Getenv("POSTGRES_PORT")
 
-	if pgHost == "" || pgUser == "" || pgPassword == "" || pgDb == "" {
+	if pgHost == "" || pgUser == "" || pgPassword == "" || pgDb == "" || pgPort == "" {
 		log.Fatalf("Variáveis de ambiente de credenciais do Postgres ausentes.")
 	}
 
@@ -66,7 +67,7 @@ func init() {
 	}
 
 	// Constrói a string de conexão.
-	connStr := fmt.Sprintf("postgresql://%s:%s@%s:5432/%s?sslmode=disable", pgUser, pgPassword, pgHost, pgDb)
+	connStr := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=disable", pgUser, pgPassword, pgHost, pgPort, pgDb)
 
 	// Define o chunkSize via env ou padrão
 	chunkSize, _ = strconv.Atoi(os.Getenv("CHUNK_SIZE"))
