@@ -39,6 +39,12 @@
     - Utilizei os melhores resultados de cada etapa
     - Separei a estrutura de arquivos por responsabilidade na raiz do projeto
     - Atingi o objetivo em 100ms, ambiente local e utilizando os 8 cores (Macbook Air M1)
+- [x] Dimensionar o banco de dados e a aplicação
+    - Rodei um arquivo com 5 milhões de registros (600MB) e apareceu um alerta do postgres sugerindo o aumento do max_wal_size
+        - O WAL é uma espécie de diário de transações, que ocupa espaço em disco antes de fazer uma alteração permanente nos dados
+            - A velocidade das inserções em lote fizeram o tamanho do WAL crescer até chegar ao máximo e provocar um checkpoint
+                - O checkpoint interrompe as operações de I/O por um instante para garantir que as mudanças sejam aplicadas
+        - É importante investigar e dimensionar corretamente toda a solução de acordo com os recursos disponíveis
+            - Isso não é necessário para o desafio proposto (40k registros)
 - [] Docker e documentação
-    - Rodei um arquivo de 600MB e apareceu um alerta do postgres relacionado a wal_size
-        - Investigar e dimensionar corretamente toda a solução de acordo com a memória e processador disponíveis (max_wal_size)
+    
