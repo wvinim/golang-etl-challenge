@@ -1,19 +1,19 @@
-# 🚀 Desafio ETL em GoLang
+# 🚀 Desafio em GoLang
 
 ![Badge de Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-green)
 ![Badge de Licença](https://img.shields.io/github/license/wvinim/golang-etl-challenge)
 
-## 📝 Descrição do Projeto
+## 📝 Descrição do projeto
 
 Solução para o desafio de criar um serviço para o carregamento de dados em lote.
 
-## 🌟 Funcionalidades Principais
+## 🌟 Funcionalidades principais
 
 * 🎯 Funcionalidade 1: Recebimento do arquivo bruto através de um serviço HTTP.
 * 📦 Funcionalidade 2: Leitura, processamento dos dados e persistência no banco com paralelismo.
 * ⚡ Funcionalidade 3: Foco em performance extrema e estabilidade para arquivos com grandes volumes.
 
-## 💻 Tecnologias Utilizadas
+## 💻 Tecnologias utilizadas
 
 * **Backend:** `GoLang` (imagem 1.25-alpine)
 * **Banco de Dados:** `PostgreSQL` (imagem 15-alpine)
@@ -43,7 +43,7 @@ ENVIRONMENT = "Ambiente em que este aplicatibo está rodando"
 SERVER_PORT = "Porta de rede em que o servidor HTTP estará disponível"
 ```
 
-## ⚙️ Como Rodar em ambiente local
+## ⚙️ Como rodar em ambiente local
 
 Com o GoLang (1.25) instalado em sua máquina, siga os passos abaixo:
 
@@ -58,7 +58,7 @@ Com o GoLang (1.25) instalado em sua máquina, siga os passos abaixo:
     go run main.go
     ```
 
-## ⚙️ Como Rodar em Docker
+## ⚙️ Como rodar em docker
 
 Com o docker instalado em sua máquina, siga os passos abaixo:
 
@@ -69,15 +69,15 @@ Com o docker instalado em sua máquina, siga os passos abaixo:
     docker-compose up -d
     ```
 
-## ⚙️ Como Remover este aplicativo do seu docker
+## ⚙️ Como remover este aplicativo do seu docker
 
 ```bash
 docker-compose down --rmi all
 ```
 
-## 🗺️ Como Usar
+## 🗺️ Como usar
 
-Seja via local ou docker, você precisará de cliente http para enviar seu arquivo, segue o cURL de exemplo:
+Seja via local ou docker, você precisará de cliente http para enviar seu arquivo via POST, segue o cURL de exemplo:
 
 ```bash
 curl --request POST \
@@ -144,7 +144,7 @@ Criei estes arquivos de apoio para desenvolver a estratégia e organizar minha a
 - Senti o mesmo entusiasmo de 2001, quando comecei em C, com o plus da senioridade e mais recursos
 - É extremamente gratificante desenvolver esse tipo de solução em Go
 
-## 🤝 Como Contribuir
+## 🤝 Como contribuir
 
 Contribuições são sempre bem-vindas! Se você quiser ajudar, por favor, siga os passos abaixo:
 
