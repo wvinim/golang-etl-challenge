@@ -33,14 +33,14 @@ Solução para o desafio de criar um serviço para o carregamento de dados em lo
 
 Confira a legenda das variáveis:
 ```bash
-POSTGRES_HOST = Endereço de rede do seu servidor PostgreSQL
-POSTGRES_USER = Usuário do seu servidor PostgreSQL
-POSTGRES_PASSWORD = Senha de acesso do seu usuário ao seu servidor PostgreSQL
-POSTGRES_DB = Nome da database dentro do seu servidor PostgreSQL
-POSTGRES_PORT = Porta de rede utilizada pelo seu servidor PostgreSQL
-CHUNK_SIZE = Número de registros a ser carregado por lote
-ENVIRONMENT = Ambiente em que este aplicatibo está rodando
-SERVER_PORT = Porta de rede em que o servidor HTTP estará disponível
+POSTGRES_HOST = "Endereço de rede do seu servidor PostgreSQL"
+POSTGRES_USER = "Usuário do seu servidor PostgreSQL"
+POSTGRES_PASSWORD = "Senha de acesso do seu usuário ao seu servidor PostgreSQL"
+POSTGRES_DB = "Nome da database dentro do seu servidor PostgreSQL"
+POSTGRES_PORT = "Porta de rede utilizada pelo seu servidor PostgreSQL"
+CHUNK_SIZE = "Número de registros a ser carregado por lote"
+ENVIRONMENT = "Ambiente em que este aplicatibo está rodando"
+SERVER_PORT = "Porta de rede em que o servidor HTTP estará disponível"
 ```
 
 ## ⚙️ Como Rodar em ambiente local
