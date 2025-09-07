@@ -21,9 +21,17 @@ Solução para o desafio de criar um serviço para o carregamento de dados em lo
 
 ## ⚙️ Antes de rodar
 
-Crie um arquivo `.env` na raiz do projeto, use como exemplo o `.env.example`.
+1.  Clone este repositório:
+    ```bash
+    git clone https://github.com/wvinim/golang-etl-challenge.git
+    ```
+2.  Entre na pasta do projeto:
+    ```bash
+    cd golang-etl-challenge
+    ```
+3.  Crie um arquivo `.env` na raiz do projeto, use como exemplo o `.env.example`
 
-Caso decida rodar sem o docker ou tiver algum problema com as portas, veja a legenda das variáveis:
+Confira a legenda das variáveis:
 ```bash
 POSTGRES_HOST = Endereço de rede do seu servidor PostgreSQL
 POSTGRES_USER = Usuário do seu servidor PostgreSQL
@@ -39,21 +47,13 @@ SERVER_PORT = Porta de rede em que o servidor HTTP estará disponível
 
 Com o GoLang (1.25) instalado em sua máquina, siga os passos abaixo:
 
-1.  Clone este repositório:
-    ```bash
-    git clone [https://github.com/wvinim/golang-etl-challenge.git](https://github.com/wvinim/golang-etl-challenge.git)
-    ```
-2.  Entre na pasta do projeto:
-    ```bash
-    cd golang-etl-challenge
-    ```
-3.  Configure o seu arquivo `.env` com as credenciais do seu PostgreSQL
+1.  Configure o seu arquivo `.env` com as credenciais do seu PostgreSQL
 
-4.  Instale as dependências:
+2.  Instale as dependências:
     ```bash
     go mod init golang-etl-challenge
     ```
-5.  Com o comando abaixo, seu serviço estará pronto para receber requisições:
+3.  Com o comando abaixo, seu serviço estará pronto para receber requisições:
     ```bash
     go run main.go
     ```
@@ -62,17 +62,9 @@ Com o GoLang (1.25) instalado em sua máquina, siga os passos abaixo:
 
 Com o docker instalado em sua máquina, siga os passos abaixo:
 
-1.  Clone este repositório:
-    ```bash
-    git clone [https://github.com/wvinim/golang-etl-challenge.git](https://github.com/wvinim/golang-etl-challenge.git)
-    ```
-2.  Entre na pasta do projeto:
-    ```bash
-    cd golang-etl-challenge
-    ```
-3.  Verifique o seu arquivo `.env`
+1.  Verifique o seu arquivo `.env`
 
-4.  Com o comando abaixo, seu serviço estará pronto para receber requisições:
+2.  Com o comando abaixo, seu serviço estará pronto para receber requisições:
     ```bash
     docker-compose up -d
     ```
