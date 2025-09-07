@@ -40,3 +40,5 @@
     - Separei a estrutura de arquivos por responsabilidade na raiz do projeto
     - Atingi o objetivo em 100ms, ambiente local e utilizando os 8 cores (Macbook Air M1)
 - [] Docker e documentação
+    - Rodei um arquivo de 600MB e apareceu um alerta do postgres relacionado a wal_size
+        - Investigar e dimensionar corretamente toda a solução de acordo com a memória e processador disponíveis (max_wal_size)
