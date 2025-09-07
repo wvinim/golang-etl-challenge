@@ -46,5 +46,5 @@
                 - O checkpoint interrompe as operações de I/O por um instante para garantir que as mudanças sejam aplicadas
         - É importante investigar e dimensionar corretamente toda a solução de acordo com os recursos disponíveis
             - Isso não é necessário para o desafio proposto (40k registros)
-- [] Docker e documentação
+- [x] Docker e documentação
     
